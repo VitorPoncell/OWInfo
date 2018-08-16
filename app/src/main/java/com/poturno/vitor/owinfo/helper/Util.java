@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class Convert {
-    public static String inputStreeamToString(InputStream inputStream){
+public class Util {
+    public static String convertInputStreamToString(InputStream inputStream){
         StringBuffer buffer = new StringBuffer();
         try{
             BufferedReader bufferedReader;

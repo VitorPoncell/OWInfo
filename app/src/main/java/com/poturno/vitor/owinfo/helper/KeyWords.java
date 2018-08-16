@@ -11,6 +11,7 @@ public class KeyWords {
     public static final String DESCRIPTION = "description";
     public static final String HEALTH = "health";
     public static final String ARMOUR = "armour";
+    public static final String SHIELD = "shield";
     public static final String REAL_NAME = "real_name";
     public static final String AGE = "age";
     public static final String HEIGHT = "height";
@@ -18,6 +19,13 @@ public class KeyWords {
     public static final String BASE_OF_OPERATIONS = "base_of_operations";
     public static final String DIFFICULTY = "difficulty";
     public static final String URL = "url";
+    public static final String ROLE = "role";
+    public static final String SUB_ROLE = "sub_roles";
+    public static final String ABILITIES = "abilities";
+    public static final String IS_ULTIMATE = "is_ultimate";
+
+
+
 
 
 

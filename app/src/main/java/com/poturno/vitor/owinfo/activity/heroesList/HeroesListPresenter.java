@@ -1,9 +1,13 @@
 package com.poturno.vitor.owinfo.activity.heroesList;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
 
+import com.poturno.vitor.owinfo.downloader.IDownloaderListener;
+import com.poturno.vitor.owinfo.downloader.JsonDownloader;
 import com.poturno.vitor.owinfo.helper.KeyWords;
+import com.poturno.vitor.owinfo.helper.Url;
 import com.poturno.vitor.owinfo.model.Hero;
 
 import org.json.JSONArray;
@@ -12,7 +16,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class HeroesListPresenter implements IHeroesListPresenter {
+public class HeroesListPresenter implements IHeroesListPresenter, IDownloaderListener{
     private HeroesListActivity activity;
 
     public HeroesListPresenter(HeroesListActivity activity){
@@ -21,16 +25,7 @@ public class HeroesListPresenter implements IHeroesListPresenter {
 
     @Override
     public void getHeroesList(){
-        new DownloadHeroesList(this).execute();
-
-    }
-
-    public void showHeroes(String json){
-        ArrayList<Hero> heroes = jsonToArrayList(json);
-        Iterator iterator = heroes.iterator();
-        while (iterator.hasNext()){
-            activity.printHero((Hero)iterator.next());
-        }
+        new JsonDownloader(this, Url.HEROES_LIST).execute();
     }
 
     private ArrayList<Hero> jsonToArrayList(String json){
@@ -53,21 +48,22 @@ public class HeroesListPresenter implements IHeroesListPresenter {
         Hero hero = new Hero();
         try {
             JSONObject jsonObject = new JSONObject(json);
-            hero.setId(jsonObject.getInt(KeyWords.ID));
+            hero.setId(""+jsonObject.getInt(KeyWords.ID));
             hero.setName(jsonObject.getString(KeyWords.NAME));
-            hero.setDescription(jsonObject.getString(KeyWords.DESCRIPTION));
-            hero.setHealth(jsonObject.getInt(KeyWords.HEALTH));
-            hero.setArmour(jsonObject.getInt(KeyWords.ARMOUR));
-            hero.setRealName(jsonObject.getString(KeyWords.REAL_NAME));
-            hero.setAge(jsonObject.getInt(KeyWords.AGE));
-            hero.setHeight(jsonObject.getInt(KeyWords.HEIGHT));
-            hero.setAffiliation(jsonObject.getString(KeyWords.AFFILIATION));
-            hero.setBaseOfOperations(jsonObject.getString(KeyWords.BASE_OF_OPERATIONS));
-            hero.setDifficulty(jsonObject.getInt(KeyWords.DIFFICULTY));
-            hero.setUrl(jsonObject.getString(KeyWords.URL));
         }catch (Exception e){
             e.printStackTrace();
         }
         return hero;
+    }
+
+    @Override
+    public void onJsonRecived(final String json) {
+        Log.i("Flag","recived");
+
+        ArrayList<Hero> heroes = jsonToArrayList(json);
+        Iterator<Hero> iterator = heroes.iterator();
+        while(iterator.hasNext()){
+            activity.printHero(iterator.next());
+        }
     }
 }

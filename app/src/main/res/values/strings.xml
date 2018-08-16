@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">OWInfo</string>
+    <string name="health">Vida:</string>
+    <string name="armour">Armadura:</string>
+    <string name="affiliation">Afiliacao:</string>
+
+
 </resources>

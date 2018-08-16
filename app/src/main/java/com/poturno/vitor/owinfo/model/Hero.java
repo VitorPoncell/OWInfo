@@ -1,24 +1,53 @@
 package com.poturno.vitor.owinfo.model;
 
+import java.util.ArrayList;
+
 public class Hero {
-    private int id;
+    private String id;
     private String name;
     private String description;
-    private int health;
-    private int armour;
+    private String health;
+    private String armour;
     private String realName;
-    private int age;
-    private int height;
+    private String age;
+    private String height;
     private String affiliation;
     private String baseOfOperations;
-    private int difficulty;
+    private String difficulty;
     private String url;
+    private String role;
+    private ArrayList<String> subRoles;
+    private ArrayList<Ability> abilities;
 
-    public int getId() {
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public ArrayList<String> getSubRoles() {
+        return subRoles;
+    }
+
+    public void setSubRoles(ArrayList<String> subRoles) {
+        this.subRoles = subRoles;
+    }
+
+    public ArrayList<Ability> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(ArrayList<Ability> abilities) {
+        this.abilities = abilities;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -38,19 +67,19 @@ public class Hero {
         this.description = description;
     }
 
-    public int getHealth() {
+    public String getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(String health) {
         this.health = health;
     }
 
-    public int getArmour() {
+    public String getArmour() {
         return armour;
     }
 
-    public void setArmour(int armour) {
+    public void setArmour(String armour) {
         this.armour = armour;
     }
 
@@ -62,19 +91,19 @@ public class Hero {
         this.realName = realName;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public int getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
@@ -94,11 +123,11 @@ public class Hero {
         this.baseOfOperations = baseOfOperations;
     }
 
-    public int getDifficulty() {
+    public String getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(int difficulty) {
+    public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
 

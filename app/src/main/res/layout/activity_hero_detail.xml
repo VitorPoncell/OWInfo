@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txt_real_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/txt_name"/>
+
+    <TextView
+        android:id="@+id/txt_description"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_real_name"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txt_health"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txt_description"
+        android:layout_below="@+id/txt_description"
+        android:layout_marginTop="10dp"
+        android:text= "@string/health" />
+
+    <TextView
+        android:id="@+id/txt_health_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_description"
+        android:layout_toEndOf="@+id/txt_health"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txt_armour_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_description"
+        android:layout_alignEnd="@id/txt_description"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txt_armour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_description"
+        android:layout_toStartOf="@id/txt_armour_value"
+        android:layout_marginTop="10dp"
+        android:text="@string/armour" />
+
+    <TextView
+        android:id="@+id/txt_affiliation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txt_description"
+        android:layout_below="@+id/txt_health"
+        android:layout_marginTop="10dp"
+        android:text="@string/affiliation" />
+
+    <TextView
+        android:id="@+id/txt_affiliation_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/txt_affiliation"
+        android:layout_below="@+id/txt_health"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+
+
+</RelativeLayout>

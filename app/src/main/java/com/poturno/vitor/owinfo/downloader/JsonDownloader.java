@@ -1,31 +1,36 @@
-package com.poturno.vitor.owinfo.activity.heroesList;
+package com.poturno.vitor.owinfo.downloader;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.poturno.vitor.owinfo.helper.Convert;
 import com.poturno.vitor.owinfo.helper.Url;
+import com.poturno.vitor.owinfo.helper.Util;
 
 import java.io.InputStream;
 import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class DownloadHeroesList extends AsyncTask<Void,Void,String> {
+public class JsonDownloader extends AsyncTask<Void,Void,String> {
 
-    private HeroesListPresenter presenter;
 
-    public DownloadHeroesList(HeroesListPresenter presenter){
-        this.presenter = presenter;
+    private IDownloaderListener listener;
+    private String urlValue;
+
+
+    public JsonDownloader(IDownloaderListener listener, String url){
+        Log.i("Flag","downloader");
+        this.listener = listener;
+        this.urlValue = url;
     }
 
     @Override
-    protected String doInBackground(Void... params) {
-
+    protected String doInBackground(Void... voids) {
+        Log.i("Flag","downloading");
         String value = "";
         HttpsURLConnection urlConnection;
         try{
-            URL url = new URL(Url.HEROES_LIST);
+            URL url = new URL(urlValue);
             urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
@@ -38,14 +43,21 @@ public class DownloadHeroesList extends AsyncTask<Void,Void,String> {
                 inputStream = urlConnection.getErrorStream();
             }
 
-            value = Convert.inputStreeamToString(inputStream);
+            value = Util.convertInputStreamToString(inputStream);
             inputStream.close();
             urlConnection.disconnect();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        presenter.showHeroes(value);
         return value;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        Log.i("Flag","post download");
+
+        listener.onJsonRecived(s);
+        super.onPostExecute(s);
     }
 }
