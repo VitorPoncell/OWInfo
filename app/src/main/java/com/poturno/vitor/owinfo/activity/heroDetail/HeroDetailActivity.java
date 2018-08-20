@@ -15,6 +15,7 @@ public class HeroDetailActivity extends AppCompatActivity {
     private IHeroDetailPresenter presenter;
     private TextView name;
     private TextView realName;
+    private TextView age;
     private TextView description;
     private TextView health;
     private TextView armour;
@@ -27,10 +28,11 @@ public class HeroDetailActivity extends AppCompatActivity {
 
         name = (TextView)findViewById(R.id.txt_name);
         realName = (TextView)findViewById(R.id.txt_real_name);
+        age = (TextView)findViewById(R.id.txt_age);
         description = (TextView)findViewById(R.id.txt_description);
-        health = (TextView)findViewById(R.id.txt_health_value);
-        armour = (TextView)findViewById(R.id.txt_armour_value);
-        affiliation = (TextView)findViewById(R.id.txt_affiliation_value);
+        health = (TextView)findViewById(R.id.txt_health);
+        armour = (TextView)findViewById(R.id.txt_armour);
+        affiliation = (TextView)findViewById(R.id.txt_affiliation);
 
         Intent intent = getIntent();
         String id = intent.getStringExtra(KeyWords.ID);
@@ -44,6 +46,7 @@ public class HeroDetailActivity extends AppCompatActivity {
     public void printHeroDetail(Hero hero){
         name.setText(hero.getName());
         realName.setText(hero.getRealName());
+        age.setText(hero.getAge());
         description.setText(hero.getDescription());
         health.setText(String.valueOf(hero.getHealth()));
         armour.setText(String.valueOf(hero.getArmour()));
