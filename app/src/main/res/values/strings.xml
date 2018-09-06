@@ -3,6 +3,7 @@
     <string name="health">Vida:</string>
     <string name="armour">Armadura:</string>
     <string name="affiliation">Afiliacao:</string>
+    <string name="height">Height:</string>
 
 
 </resources>

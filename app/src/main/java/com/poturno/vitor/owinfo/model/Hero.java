@@ -1,5 +1,7 @@
 package com.poturno.vitor.owinfo.model;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 
 public class Hero {
@@ -18,6 +20,7 @@ public class Hero {
     private String role;
     private ArrayList<String> subRoles;
     private ArrayList<Ability> abilities;
+    private Bitmap portraitIcon;
 
     public String getRole() {
         return role;
@@ -137,5 +140,13 @@ public class Hero {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Bitmap getPortraitIcon() {
+        return portraitIcon;
+    }
+
+    public void setPortraitIcon(Bitmap portraitIcon) {
+        this.portraitIcon = portraitIcon;
     }
 }

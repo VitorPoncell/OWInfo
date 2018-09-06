@@ -11,11 +11,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.poturno.vitor.owinfo.R;
+import com.poturno.vitor.owinfo.activity.brawl.BrawlActivity;
+import com.poturno.vitor.owinfo.activity.gameMode.GameModeActivity;
 import com.poturno.vitor.owinfo.activity.heroesList.HeroesListActivity;
-import com.poturno.vitor.owinfo.adapter.MenuAdapter;
+import com.poturno.vitor.owinfo.activity.mapsList.MapsListActivity;
+import com.poturno.vitor.owinfo.activity.platform.PlatformActivity;
 import com.poturno.vitor.owinfo.helper.KeyWords;
+import com.poturno.vitor.owinfo.helper.MenuKeys;
+import com.poturno.vitor.owinfo.model.GameMode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,19 +39,31 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.lv_menu);
         
         items = new ArrayList<>();
-        items.add(KeyWords.HEROES);
-        items.add(KeyWords.MAPS);
+        items.addAll(Arrays.asList(MenuKeys.items));
 
-        adapter = new MenuAdapter(this,items);
+        adapter = new ArrayAdapter<String>(this,R.layout.menu_list,R.id.txt_menu_item_name,items);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (items.get(position)){
-                    case KeyWords.HEROES:
-                        openHeroesActivity();
+                    case MenuKeys.HEROES:
+                        openHeroesListActivity();
                         break;
+                    case MenuKeys.MAPS:
+                        openMapsListActivity();
+                        break;
+                    case MenuKeys.GAME_MODE:
+                        openGameModeActivity();
+                        break;
+                    case MenuKeys.BRAWL:
+                        openBrawlActivity();
+                        break;
+                    case MenuKeys.PLATAFORM:
+                        openPlataformActivity();
+                        break;
+
 
                 }
 
@@ -72,8 +90,28 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void openHeroesActivity(){
+    private void openHeroesListActivity(){
         Intent intent = new Intent(MainActivity.this, HeroesListActivity.class);
+        startActivity(intent);
+    }
+
+    private void openMapsListActivity(){
+        Intent intent = new Intent(MainActivity.this, MapsListActivity.class);
+        startActivity(intent);
+    }
+
+    private void openGameModeActivity(){
+        Intent intent = new Intent(MainActivity.this, GameModeActivity.class);
+        startActivity(intent);
+    }
+
+    private void openBrawlActivity(){
+        Intent intent = new Intent(MainActivity.this, BrawlActivity.class);
+        startActivity(intent);
+    }
+
+    private void openPlataformActivity(){
+        Intent intent = new Intent(MainActivity.this, PlatformActivity.class);
         startActivity(intent);
     }
 }

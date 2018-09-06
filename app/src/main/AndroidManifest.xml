@@ -7,8 +7,10 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -20,7 +22,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.heroesList.HeroesListActivity" />
-        <activity android:name=".activity.heroDetail.HeroDetailActivity"></activity>
+        <activity android:name=".activity.heroDetail.HeroDetailActivity" />
+        <activity android:name=".activity.mapsList.MapsListActivity" />
+        <activity android:name=".activity.mapDetail.MapDetailActivity" />
+        <activity android:name=".activity.gameMode.GameModeActivity" />
+        <activity android:name=".activity.brawl.BrawlActivity" />
+        <activity android:name=".activity.platform.PlatformActivity"></activity>
     </application>
 
 </manifest>

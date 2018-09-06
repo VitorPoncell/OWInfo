@@ -13,12 +13,20 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/txt_real_name"
+        android:id="@+id/txt_role"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:layout_below="@id/txt_name"/>
+
+    <TextView
+        android:id="@+id/txt_real_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_role"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/txt_description"
@@ -82,6 +90,61 @@
         android:layout_below="@+id/txt_health"
         android:layout_marginTop="10dp"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txt_height_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_armour_value"
+        android:layout_alignEnd="@id/txt_armour_value"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txt_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/txt_height_value"
+        android:layout_below="@id/txt_armour"
+        android:layout_marginTop="10dp"
+        android:text="@string/height"/>
+
+    <TextView
+        android:id="@+id/txt_base"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_affiliation"
+        android:text="Base: "/>
+    <TextView
+        android:id="@+id/txt_base_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_affiliation"
+        android:layout_toEndOf="@id/txt_base"/>
+
+    <TextView
+        android:id="@+id/txt_difficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Difficult:"
+        android:layout_below="@id/txt_base"
+        android:layout_centerHorizontal="true"/>
+
+    <RatingBar
+        android:id="@+id/rb_difficult_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_difficulty"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:numStars="3"
+        android:isIndicator="true"/>
+
+    <ListView
+        android:id="@+id/lv_abilities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rb_difficult_value"></ListView>
 
 
 </RelativeLayout>

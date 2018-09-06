@@ -1,5 +1,7 @@
 package com.poturno.vitor.owinfo.downloader;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -17,16 +19,14 @@ public class JsonDownloader extends AsyncTask<Void,Void,String> {
     private IDownloaderListener listener;
     private String urlValue;
 
-
     public JsonDownloader(IDownloaderListener listener, String url){
-        Log.i("Flag","downloader");
         this.listener = listener;
         this.urlValue = url;
     }
 
+
     @Override
     protected String doInBackground(Void... voids) {
-        Log.i("Flag","downloading");
         String value = "";
         HttpsURLConnection urlConnection;
         try{
@@ -55,8 +55,6 @@ public class JsonDownloader extends AsyncTask<Void,Void,String> {
 
     @Override
     protected void onPostExecute(String s) {
-        Log.i("Flag","post download");
-
         listener.onJsonRecived(s);
         super.onPostExecute(s);
     }

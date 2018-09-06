@@ -1,58 +1,60 @@
-package com.poturno.vitor.owinfo.activity.heroesList;
+package com.poturno.vitor.owinfo.activity.mapsList;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.poturno.vitor.owinfo.R;
-import com.poturno.vitor.owinfo.activity.heroDetail.HeroDetailActivity;
-import com.poturno.vitor.owinfo.adapter.HeroListAdapter;
-import com.poturno.vitor.owinfo.helper.IIteratorListener;
+import com.poturno.vitor.owinfo.activity.mapDetail.MapDetailActivity;
+import com.poturno.vitor.owinfo.adapter.MapsListAdapter;
 import com.poturno.vitor.owinfo.helper.KeyWords;
-import com.poturno.vitor.owinfo.model.Hero;
+import com.poturno.vitor.owinfo.model.Map;
 
 import java.util.ArrayList;
 
-public class HeroesListActivity extends AppCompatActivity {
+public class MapsListActivity extends AppCompatActivity {
 
-    private IHeroesListPresenter presenter;
+    private IMapsListPresenter presenter;
     private ListView listView;
-    private ArrayAdapter<Hero> adapter;
-    private ArrayList<Hero> heroes;
+    private ArrayAdapter<Map> adapter;
+    private ArrayList<Map> maps;
 
     private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_heroes_list);
+        setContentView(R.layout.activity_maps_list);
 
-        listView = (ListView)findViewById(R.id.lv_heroes);
+        listView = (ListView)findViewById(R.id.lv_maps);
 
-        heroes = new ArrayList<Hero>();
-        adapter = new HeroListAdapter(this,heroes);
+        maps = new ArrayList<Map>();
+        adapter = new MapsListAdapter(this,maps);
         listView.setAdapter(adapter);
 
-        presenter = new HeroesListPresenter(this);
-        presenter.getHeroesList();
+        presenter = new MapsListPresenter(this);
+        presenter.getMapsList();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HeroesListActivity.this, HeroDetailActivity.class);
-                intent.putExtra(KeyWords.ID,heroes.get(position).getId());
+                Intent intent = new Intent(MapsListActivity.this,MapDetailActivity.class);
+                intent.putExtra(KeyWords.ID,maps.get(position).getId());
                 startActivity(intent);
-
             }
         });
 
+    }
+
+    public void printMap(Map map){
+        maps.add(map);
+        adapter.notifyDataSetChanged();
     }
 
     public void waitOperation(){
@@ -67,15 +69,8 @@ public class HeroesListActivity extends AppCompatActivity {
         dialog.dismiss();
     }
 
-    public void printHero(Hero hero){
-        Log.i("Flag",hero.getName());
-        heroes.add(hero);
+    public void updateImg(int id, Bitmap bitmap) {
+        maps.get(id).setSmallImg(bitmap);
         adapter.notifyDataSetChanged();
     }
-
-    public void updateImg(int id, Bitmap img){
-        heroes.get(id).setPortraitIcon(img);
-        adapter.notifyDataSetChanged();
-    }
-
 }

@@ -1,23 +1,18 @@
 package com.poturno.vitor.owinfo.activity.heroesList;
 
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
+import android.graphics.Bitmap;
 
-import com.poturno.vitor.owinfo.downloader.IDownloaderListener;
-import com.poturno.vitor.owinfo.downloader.JsonDownloader;
-import com.poturno.vitor.owinfo.helper.KeyWords;
+import com.poturno.vitor.owinfo.downloader.IImgDownloaderListener;
+import com.poturno.vitor.owinfo.downloader.ImgDownloader;
+import com.poturno.vitor.owinfo.helper.IIterator;
+import com.poturno.vitor.owinfo.helper.IIteratorListener;
 import com.poturno.vitor.owinfo.helper.Url;
 import com.poturno.vitor.owinfo.model.Hero;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+public class HeroesListPresenter implements IHeroesListPresenter, IIteratorListener, IImgDownloaderListener{
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-public class HeroesListPresenter implements IHeroesListPresenter, IDownloaderListener{
     private HeroesListActivity activity;
+    private IIterator iterator;
 
     public HeroesListPresenter(HeroesListActivity activity){
         this.activity = activity;
@@ -25,45 +20,26 @@ public class HeroesListPresenter implements IHeroesListPresenter, IDownloaderLis
 
     @Override
     public void getHeroesList(){
-        new JsonDownloader(this, Url.HEROES_LIST).execute();
+        activity.waitOperation();
+        iterator = new HeroesListIterator(this);
+
     }
 
-    private ArrayList<Hero> jsonToArrayList(String json){
-        ArrayList<Hero> heroes = new ArrayList<Hero>();
-        try {
 
-            JSONObject jsonObject = new JSONObject(json);
-            JSONArray array = jsonObject.getJSONArray(KeyWords.DATA);
-            for(int i = 0; i < array.length();i++){
-                String heroJson =  array.get(i).toString();
-                heroes.add(jsonToHero(heroJson));
-            }
-        }catch (Exception e){
-
+    @Override
+    public void ready() {
+        activity.stopWait();
+        while (iterator.hasNext()){
+            activity.printHero((Hero) iterator.next());
+        }
+        for(int i = 0 ; i<iterator.size();i++){
+            new ImgDownloader(""+(i+1),Url.getSmallHeroImg(""+(i+1)),this).execute();
         }
 
-        return heroes;
-    }
-    private Hero jsonToHero(String json){
-        Hero hero = new Hero();
-        try {
-            JSONObject jsonObject = new JSONObject(json);
-            hero.setId(""+jsonObject.getInt(KeyWords.ID));
-            hero.setName(jsonObject.getString(KeyWords.NAME));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return hero;
     }
 
     @Override
-    public void onJsonRecived(final String json) {
-        Log.i("Flag","recived");
-
-        ArrayList<Hero> heroes = jsonToArrayList(json);
-        Iterator<Hero> iterator = heroes.iterator();
-        while(iterator.hasNext()){
-            activity.printHero(iterator.next());
-        }
+    public void onBitmapRecived(Bitmap bitmap, String id) {
+        activity.updateImg(Integer.parseInt(id)-1,bitmap);
     }
 }

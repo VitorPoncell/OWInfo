@@ -2,8 +2,8 @@ package com.poturno.vitor.owinfo.helper;
 
 public class KeyWords {
 
-    public static final String HEROES = "Herois";
-    public static final String MAPS = "Mapas";
+
+
     public static final String GET = "GET";
     public static final String DATA = "data";
     public static final String ID = "id";
@@ -23,6 +23,12 @@ public class KeyWords {
     public static final String SUB_ROLE = "sub_roles";
     public static final String ABILITIES = "abilities";
     public static final String IS_ULTIMATE = "is_ultimate";
+    public static final String LOCATION = "location";
+    public static final String MODE = "mode";
+    public static final String EVENT = "event";
+
+
+
 
 
 

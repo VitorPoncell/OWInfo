@@ -1,5 +1,6 @@
 package com.poturno.vitor.owinfo.activity.heroDetail;
 
+import android.os.AsyncTask;
 import android.util.Log;
 
 import com.poturno.vitor.owinfo.downloader.IDownloaderListener;
@@ -15,7 +16,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderListener{
-    HeroDetailActivity activity;
+    private HeroDetailActivity activity;
+
     public HeroDetailPresenter(HeroDetailActivity heroDetailActivity) {
         this.activity = heroDetailActivity;
 
@@ -23,11 +25,7 @@ public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderLis
 
     @Override
     public void getHeroDetail(String id) {
-        new JsonDownloader(this, Url.heroDetail(id)).execute();
-    }
-
-    @Override
-    public void reciveHeroDetail(String s) {
+        new JsonDownloader(this, Url.heroDetail(id)).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     private Hero jsonToHeroDetail(String json){
