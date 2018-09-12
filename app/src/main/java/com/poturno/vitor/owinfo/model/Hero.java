@@ -21,6 +21,15 @@ public class Hero {
     private ArrayList<String> subRoles;
     private ArrayList<Ability> abilities;
     private Bitmap portraitIcon;
+    private Bitmap bigImg;
+
+    public Bitmap getBigImg() {
+        return bigImg;
+    }
+
+    public void setBigImg(Bitmap bigImg) {
+        this.bigImg = bigImg;
+    }
 
     public String getRole() {
         return role;

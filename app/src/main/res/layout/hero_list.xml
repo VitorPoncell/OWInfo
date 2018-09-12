@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDark">
     
     <ImageView
         android:id="@+id/iv_hero_img"
@@ -11,7 +14,9 @@
     <TextView
         android:id="@+id/txt_hero_item_name"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:textColor="@color/colorYellow"
+        app:layout_constraintStart_toEndOf="@id/iv_hero_img"/>
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

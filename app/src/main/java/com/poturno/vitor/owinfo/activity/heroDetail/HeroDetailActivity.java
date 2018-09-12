@@ -1,10 +1,14 @@
 package com.poturno.vitor.owinfo.activity.heroDetail;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -20,6 +24,7 @@ import java.util.ArrayList;
 public class HeroDetailActivity extends AppCompatActivity {
 
     private IHeroDetailPresenter presenter;
+    private ImageView heroImg;
     private TextView name;
     private TextView role;
     private TextView realName;
@@ -40,6 +45,7 @@ public class HeroDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hero_detail);
 
+        heroImg = (ImageView)findViewById(R.id.iv_hero_dedtail_img);
         name = (TextView)findViewById(R.id.txt_name);
         role = (TextView)findViewById(R.id.txt_role);
         realName = (TextView)findViewById(R.id.txt_real_name);
@@ -63,6 +69,15 @@ public class HeroDetailActivity extends AppCompatActivity {
         presenter = new HeroDetailPresenter(HeroDetailActivity.this);
         presenter.getHeroDetail(id);
 
+        abilitiesListView.setFocusable(false);
+        abilitiesListView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
+
 
     }
 
@@ -80,5 +95,9 @@ public class HeroDetailActivity extends AppCompatActivity {
         abilities.addAll(hero.getAbilities());
         adapter.notifyDataSetChanged();
 
+    }
+
+    public void printHeroImg(Bitmap bitmap){
+        heroImg.setImageBitmap(bitmap);
     }
 }

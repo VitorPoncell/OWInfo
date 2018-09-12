@@ -2,6 +2,7 @@ package com.poturno.vitor.owinfo.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,7 @@ public class MapsListAdapter extends ArrayAdapter<Map>{
             }
 
             String heroName = maps.get(position).getName();
+            vh.mapItemName.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/big_noodle_titling.ttf"));
             vh.mapItemName.setText(heroName);
             Bitmap bitmap = maps.get(position).getSmallImg();
             vh.mapItemImg.setImageBitmap(bitmap);

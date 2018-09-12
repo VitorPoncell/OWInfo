@@ -1,9 +1,12 @@
 package com.poturno.vitor.owinfo.activity.heroDetail;
 
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.poturno.vitor.owinfo.downloader.IDownloaderListener;
+import com.poturno.vitor.owinfo.downloader.IImgDownloaderListener;
+import com.poturno.vitor.owinfo.downloader.ImgDownloader;
 import com.poturno.vitor.owinfo.downloader.JsonDownloader;
 import com.poturno.vitor.owinfo.helper.KeyWords;
 import com.poturno.vitor.owinfo.helper.Url;
@@ -15,7 +18,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderListener{
+public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderListener, IImgDownloaderListener{
     private HeroDetailActivity activity;
 
     public HeroDetailPresenter(HeroDetailActivity heroDetailActivity) {
@@ -26,6 +29,8 @@ public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderLis
     @Override
     public void getHeroDetail(String id) {
         new JsonDownloader(this, Url.heroDetail(id)).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        new ImgDownloader(""+id,Url.getBigHeroImg(""+id),this).execute();
+
     }
 
     private Hero jsonToHeroDetail(String json){
@@ -38,7 +43,7 @@ public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderLis
             hero.setHealth(""+jsonObject.getInt(KeyWords.HEALTH));
             hero.setArmour(""+(jsonObject.getInt(KeyWords.ARMOUR)+jsonObject.getInt(KeyWords.SHIELD)));
             hero.setRealName(verifyNull(jsonObject.getString(KeyWords.REAL_NAME)));
-            hero.setAge(""+verifyNull(jsonObject.getInt(KeyWords.AGE)));
+            hero.setAge(""+verifyNull(""+jsonObject.get(KeyWords.AGE)));
             hero.setHeight(""+verifyNull(jsonObject.get(KeyWords.HEIGHT)));
             hero.setAffiliation(verifyNull(jsonObject.getString(KeyWords.AFFILIATION)));
             hero.setBaseOfOperations(verifyNull(jsonObject.getString(KeyWords.BASE_OF_OPERATIONS)));
@@ -81,5 +86,11 @@ public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderLis
     @Override
     public void onJsonRecived(String json) {
         activity.printHeroDetail(jsonToHeroDetail(json));
+
+    }
+
+    @Override
+    public void onBitmapRecived(Bitmap bitmap, String id) {
+        activity.printHeroImg(bitmap);
     }
 }

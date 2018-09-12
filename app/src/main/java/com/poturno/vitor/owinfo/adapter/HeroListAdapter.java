@@ -2,6 +2,7 @@ package com.poturno.vitor.owinfo.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -47,6 +48,8 @@ public class HeroListAdapter extends ArrayAdapter<Hero> {
             }
 
             String heroName = heroes.get(position).getName();
+            vh.heroItemName.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/big_noodle_titling_oblique.ttf"));
+
             vh.heroItemName.setText(heroName);
             Bitmap img = heroes.get(position).getPortraitIcon();
             vh.heroImg.setImageBitmap(img);
