@@ -73,7 +73,10 @@ public class HeroesListIterator implements IIterator, IDownloaderListener {
         return size;
     }
 
-
+    @Override
+    public int getPosition() {
+        return index;
+    }
 
 
     private ArrayList<Hero> jsonToArrayList(String json) {

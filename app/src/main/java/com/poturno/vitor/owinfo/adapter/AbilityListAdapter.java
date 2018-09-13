@@ -43,10 +43,8 @@ public class AbilityListAdapter extends ArrayAdapter<Ability>{
                 vh = (AbilityListAdapter.ViewHoldeer) _view.getTag();
             }
 
-            Typeface type = Typeface.createFromAsset(context.getAssets(),"fonts/big_noodle_titling.ttf");
 
             if(abilities.get(position).isUltimate()){
-                vh.abilityUltmate.setTypeface(type);
                 vh.abilityUltmate.setText("\nUltimate");
             }else{
                 vh.abilityUltmate.setText("");
@@ -54,10 +52,8 @@ public class AbilityListAdapter extends ArrayAdapter<Ability>{
 
             String name = abilities.get(position).getName();
             vh.ablilityName.setText(name);
-            vh.ablilityName.setTypeface(type);
             String description = abilities.get(position).getDescription();
             vh.abilityDescription.setText(description);
-            vh.abilityDescription.setTypeface(type);
 
         }
 

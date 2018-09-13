@@ -1,6 +1,10 @@
 package com.poturno.vitor.owinfo.activity.mapDetail;
 
+import android.graphics.Bitmap;
+
 import com.poturno.vitor.owinfo.downloader.IDownloaderListener;
+import com.poturno.vitor.owinfo.downloader.IImgDownloaderListener;
+import com.poturno.vitor.owinfo.downloader.ImgDownloader;
 import com.poturno.vitor.owinfo.downloader.JsonDownloader;
 import com.poturno.vitor.owinfo.helper.KeyWords;
 import com.poturno.vitor.owinfo.helper.Url;
@@ -11,7 +15,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MapDetailPresenter implements IMapDetailPresenter, IDownloaderListener {
+public class MapDetailPresenter implements IMapDetailPresenter, IDownloaderListener, IImgDownloaderListener {
 
     private MapDetailActivity activity;
 
@@ -21,7 +25,9 @@ public class MapDetailPresenter implements IMapDetailPresenter, IDownloaderListe
 
     @Override
     public void getMapDetail(String id){
+        activity.waitOperation();
         new JsonDownloader(this, Url.mapDetail(id)).execute();
+        new ImgDownloader(id,Url.getMapImgDetail(id),this).execute();
 
     }
 
@@ -45,5 +51,11 @@ public class MapDetailPresenter implements IMapDetailPresenter, IDownloaderListe
     @Override
     public void onJsonRecived(String json) {
         activity.printMapDetail(jsonToMapDetail(json));
+    }
+
+    @Override
+    public void onBitmapRecived(Bitmap bitmap, String id) {
+        activity.stopWait();
+        activity.printImage(bitmap);
     }
 }

@@ -47,6 +47,7 @@ public class PlatformAdapter extends ArrayAdapter {
             Bitmap bitmap = platformArrayList.get(position).getBitmap();
             vh.plataformImg.setImageBitmap(bitmap);
 
+
         }
 
         return _view;

@@ -17,7 +17,7 @@ public class PlatformPresenter implements IPlatformPresenter, IIteratorListener{
     @Override
     public void getPlatformList() {
         activity.waitOperation();
-        iterator = new PlatformIterator(this);
+        iterator = new PlatformIterator(this, activity);
 
     }
 

@@ -76,7 +76,7 @@ public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderLis
 
     private String verifyNull(Object num){
         if(num.toString().equals("null")){
-            return "Nao informado";
+            return "Not informed";
         }else{
             return  num.toString();
         }

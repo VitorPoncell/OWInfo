@@ -5,4 +5,5 @@ public interface IIterator {
     public Object next();
     public void first();
     public int size();
+    public int getPosition();
 }

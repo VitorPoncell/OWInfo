@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.gameMode.GameModeActivity">
+    tools:context=".activity.gameMode.GameModeActivity"
+    android:background="@color/colorDark">
 
     <ListView
         android:id="@+id/lv_game_mode_itens"

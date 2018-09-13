@@ -50,6 +50,11 @@ public class MapsListIteractor implements IIterator, IDownloaderListener {
     }
 
     @Override
+    public int getPosition() {
+        return index;
+    }
+
+    @Override
     public void onJsonRecived(String json) {
         try {
             maps = new Map[new JSONObject(json).getInt("total")];

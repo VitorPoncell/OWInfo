@@ -1,7 +1,11 @@
 package com.poturno.vitor.owinfo.activity.platform;
 
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import com.poturno.vitor.owinfo.R;
 import com.poturno.vitor.owinfo.downloader.IDownloaderListener;
 import com.poturno.vitor.owinfo.downloader.JsonDownloader;
 import com.poturno.vitor.owinfo.helper.IIterator;
@@ -16,6 +20,8 @@ import org.json.JSONObject;
 
 public class PlatformIterator implements IIterator , IDownloaderListener {
 
+    private Activity activity;
+
     private IIteratorListener listener;
 
     private Platform[] platforms;
@@ -24,8 +30,9 @@ public class PlatformIterator implements IIterator , IDownloaderListener {
 
     private int size = 0;
 
-    public PlatformIterator(IIteratorListener listener) {
+    public PlatformIterator(IIteratorListener listener, Activity activity) {
         this.listener = listener;
+        this.activity = activity;
         new JsonDownloader(this, Url.PLATFORM).execute();
 
     }
@@ -67,12 +74,28 @@ public class PlatformIterator implements IIterator , IDownloaderListener {
         return size;
     }
 
+    @Override
+    public int getPosition() {
+        return index;
+    }
+
     private void jsonToArray(String json) {
         try {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray array = jsonObject.getJSONArray(KeyWords.DATA);
             for (int i = 0; i < size; i++) {
                 platforms[i] = jsonToPlatform(array.get(i).toString());
+                switch (i){
+                    case 0 :
+                        platforms[i].setBitmap(BitmapFactory.decodeResource(activity.getResources(),R.drawable.win10));
+                        break;
+                    case 1 :
+                        platforms[i].setBitmap(BitmapFactory.decodeResource(activity.getResources(),R.drawable.ps4));
+                        break;
+                    case 2 :
+                        platforms[i].setBitmap(BitmapFactory.decodeResource(activity.getResources(),R.drawable.xbox));
+                        break;
+                }
             }
         } catch (Exception e) {
 

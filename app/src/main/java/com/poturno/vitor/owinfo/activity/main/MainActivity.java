@@ -3,6 +3,7 @@ package com.poturno.vitor.owinfo.activity.main;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.poturno.vitor.owinfo.R;
 import com.poturno.vitor.owinfo.activity.brawl.BrawlActivity;
@@ -19,6 +21,7 @@ import com.poturno.vitor.owinfo.activity.mapsList.MapsListActivity;
 import com.poturno.vitor.owinfo.activity.platform.PlatformActivity;
 import com.poturno.vitor.owinfo.helper.KeyWords;
 import com.poturno.vitor.owinfo.helper.MenuKeys;
+import com.poturno.vitor.owinfo.helper.Url;
 import com.poturno.vitor.owinfo.model.GameMode;
 
 import java.util.ArrayList;
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     private ArrayList<String> items;
 
+    private TextView webPage;
 
 
     @Override
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listView = (ListView)findViewById(R.id.lv_menu);
+        webPage = (TextView)findViewById(R.id.tv_web_page);
         
         items = new ArrayList<>();
         items.addAll(Arrays.asList(MenuKeys.items));
@@ -68,6 +73,18 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
+            }
+        });
+
+        webPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(Url.WEB_PAGE));
+                    startActivity(intent);
+                }catch (Exception e){
+
+                }
             }
         });
 

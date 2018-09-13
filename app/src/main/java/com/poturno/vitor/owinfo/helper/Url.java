@@ -7,10 +7,7 @@ public class Url {
     public static final String GAME_MODE = "https://overwatch-api.net/api/v1/game-mode";
     public static final String BRAWL = "https://overwatch-api.net/api/v1/brawl-type";
     public static final String PLATFORM = "https://overwatch-api.net/api/v1/platform";
-
-
-
-
+    public static final String WEB_PAGE = "https://playoverwatch.com";
 
     public static String mapDetail(String id) {
         return MAPS_LIST + "/" + id;
@@ -20,8 +17,8 @@ public class Url {
         return HEROES_LIST + "/" + id;
     }
 
-    public static String getSmallHeroImg(String id){
-        switch (id){
+    public static String getSmallHeroImg(String id) {
+        switch (id) {
             case "1":
                 return "https://d1u1mce87gyfbn.cloudfront.net/hero/ana/icon-portrait.png";
             case "2":
@@ -75,8 +72,8 @@ public class Url {
         }
     }
 
-    public static String getBigHeroImg(String id){
-        switch (id){
+    public static String getBigHeroImg(String id) {
+        switch (id) {
             case "1":
                 return "https://c-7npsfqifvt34x24e2v6q4m5x78qbz4lx2edmpvegspoux2eofu.g00.gamepedia.com/g00/3_c-7pwfsx78budi.hbnfqfejb.dpn_/c-7NPSFQIFVT34x24iuuqtx3ax2fx2fe2v6q4m5x78qbz4l.dmpvegspou.ofux2fpwfsx78budi_hbnfqfejbx2fuivncx2f8x2f87x2fBob.qohx2f326qy-Bob.qohx3fwfstjpox3d5e966705752c4e3ebbg2c1c0ecg70c36x26j21d.nbslx3djnbhf_$/$/$/$/$/$/$";
             case "2":
@@ -130,8 +127,8 @@ public class Url {
         }
     }
 
-    public static String getMapSmallImg(String id){
-        switch (id){
+    public static String getMapSmallImg(String id) {
+        switch (id) {
             case "1":
                 return "https://c-8oqtgrjgwu46x24f3w7r5n6yrca5mx2eenqwfhtqpvx2epgv.g00.gamepedia.com/g00/3_c-8qx78gtycvej.icogrgfkc.eqo_/c-8OQTGRJGWU46x24jvvrux3ax2fx2ff3w7r5n6yrca5m.enqwfhtqpv.pgvx2fqx78gtycvej_icogrgfkcx2fvjwodx2fgx2fgex2fFqtcfq-uvtggvu4.lrix2f747rz-Fqtcfq-uvtggvu4.lrix3fx78gtukqpx3d24990068fe282h79e4322f80610ce732x26k32e.octmx3dkocig_$/$/$/$/$/$/$";
             case "2":
@@ -164,7 +161,45 @@ public class Url {
                 return "https://c-8oqtgrjgwu46x24f3w7r5n6yrca5mx2eenqwfhtqpvx2epgv.g00.gamepedia.com/g00/3_c-8qx78gtycvej.icogrgfkc.eqo_/c-8OQTGRJGWU46x24jvvrux3ax2fx2ff3w7r5n6yrca5m.enqwfhtqpv.pgvx2fqx78gtycvej_icogrgfkcx2fvjwodx2f2x2f22x2fGeqrqkpv_Cpvctevkec_DnkbbEqp_4238.rpix2f747rz-Geqrqkpv_Cpvctevkec_DnkbbEqp_4238.rpix3fx78gtukqpx3d99g877e33346018131199c7h0f578h63x26k32e.octmx3dkocig_$/$/$/$/$/$/$";
             default:
                 return "";
-        }    }
+        }
+    }
+
+    public static String getMapImgDetail(String id){
+        switch (id) {
+            case "1":
+                return "https://4.bp.blogspot.com/-W4PZ_qJiS8Q/V3m0ADhddBI/AAAAAAAAPWU/S1ZXxy4aqqkAzC62CSiaxP5tI11_kA-BgCLcB/s1600/dorado.png";
+            case "2":
+                return "https://image.redbull.com/rbcom/010/2016-08-31/1331815127129_2/0100/0/1/a-rocket-powered-payload-for-a-supercharged-map.jpg";
+            case "3":
+                return "https://theobjective.gg/wp-content/uploads/2017/03/Estado_das_Ras1.jpg";
+            case "4":
+                return "https://i2.wp.com/movingthepayload.com/wp-content/uploads/2017/10/Hanamura_FirstPoint.png?resize=735%2C413&ssl=1";
+            case "5":
+                return "https://vignette.wikia.nocookie.net/overwatch/images/c/cb/Hollywood_screenshot_9.jpg/revision/latest/scale-to-width-down/640?cb=20160605012430";
+            case "6":
+                return "https://www.google.com/imgres?imgurl=http%3A%2F%2Fvignette4.wikia.nocookie.net%2Foverwatch%2Fimages%2Fe%2Fe6%2FIlios_screenshot_11.png%2Frevision%2Flatest%3Fcb%3D20160712053958&imgrefurl=https%3A%2F%2Fguides.cheatcc.com%2Foverwatch-guide-walkthrough%2Fguide_sections%2Filios&docid=VYW6-0FfC02kbM&tbnid=XM_krkptAvTx-M%3A&vet=10ahUKEwiO2Zq8w7jdAhXRqZAKHW7GBs8QMwg8KAQwBA..i&w=3000&h=1687&bih=905&biw=1278&q=Ilios%20control%20overwatch&ved=0ahUKEwiO2Zq8w7jdAhXRqZAKHW7GBs8QMwg8KAQwBA&iact=mrc&uact=8";
+            case "7":
+                return "https://vignette.wikia.nocookie.net/overwatch/images/7/75/Kings_Row_007.jpg/revision/latest?cb=20141108195824";
+            case "8":
+                return "https://pm1.narvii.com/6346/79dfb488a93f26891a1b39ee230c9624fb7737e7_hq.jpg";
+            case "9":
+                return "https://23hqvk1n0nuw1j9s413q5mtv-wpengine.netdna-ssl.com/wp-content/uploads/2017/08/payload-e1502991691845.jpg";
+            case "10":
+                return "https://static.icy-veins.com/images/overwatch/game-mode-hybrid.jpg";
+            case "11":
+                return "https://vignette.wikia.nocookie.net/overwatch/images/6/62/Nepal_screenshot_16.png/revision/latest?cb=20160711233016";
+            case "12":
+                return "https://assets.tentonhammer.com/articles/attached_images/000/025/035/medium/TempleOfAnubis.jpg?1468378034";
+            case "13":
+                return "https://vignette.wikia.nocookie.net/overwatch/images/c/ce/Volskaya11.jpg/revision/latest?cb=20160629221459&path-prefix=pt-br";
+            case "14":
+                return "https://cdnb.artstation.com/p/assets/images/images/007/539/317/large/andrew-klimas-watchpoint-gibraltar-01.jpg?1506852800";
+            case "15":
+                return "https://blog.gamersensei.com/wp-content/uploads/2016/12/wsi-imageoptim-ow_ice_02.jpg";
+            default:
+                return "";
+        }
+    }
 
 
 }

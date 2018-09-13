@@ -70,6 +70,11 @@ public class GameModeIterator implements IIterator, IDownloaderListener {
         return size;
     }
 
+    @Override
+    public int getPosition() {
+        return index;
+    }
+
     private void jsonToArray(String json) {
         try {
             JSONObject jsonObject = new JSONObject(json);

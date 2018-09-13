@@ -42,17 +42,17 @@ public class HeroListAdapter extends ArrayAdapter<Hero> {
                 vh = new ViewHoldeer();
                 vh.heroImg = (ImageView) _view.findViewById(R.id.iv_hero_img);
                 vh.heroItemName = (TextView) _view.findViewById(R.id.txt_hero_item_name);
+
                 _view.setTag(vh);
             } else {
                 vh = (ViewHoldeer) _view.getTag();
             }
 
             String heroName = heroes.get(position).getName();
-            vh.heroItemName.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/big_noodle_titling_oblique.ttf"));
-
             vh.heroItemName.setText(heroName);
             Bitmap img = heroes.get(position).getPortraitIcon();
             vh.heroImg.setImageBitmap(img);
+
 
         }
 
@@ -63,5 +63,6 @@ public class HeroListAdapter extends ArrayAdapter<Hero> {
     private static class ViewHoldeer {
         public ImageView heroImg;
         public TextView heroItemName;
+
     }
 }

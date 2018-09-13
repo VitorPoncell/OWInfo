@@ -9,12 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.GridView;
 
 import com.poturno.vitor.owinfo.R;
 import com.poturno.vitor.owinfo.activity.heroDetail.HeroDetailActivity;
 import com.poturno.vitor.owinfo.adapter.HeroListAdapter;
-import com.poturno.vitor.owinfo.helper.IIteratorListener;
 import com.poturno.vitor.owinfo.helper.KeyWords;
 import com.poturno.vitor.owinfo.model.Hero;
 
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 public class HeroesListActivity extends AppCompatActivity {
 
     private IHeroesListPresenter presenter;
-    private ListView listView;
+    private GridView gridView;
     private ArrayAdapter<Hero> adapter;
     private ArrayList<Hero> heroes;
 
@@ -34,20 +33,21 @@ public class HeroesListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heroes_list);
 
-        listView = (ListView)findViewById(R.id.lv_heroes);
+        gridView = (GridView) findViewById(R.id.gv_heroes);
 
         heroes = new ArrayList<Hero>();
-        adapter = new HeroListAdapter(this,heroes);
-        listView.setAdapter(adapter);
+        adapter = new HeroListAdapter(this, heroes);
+        gridView.setAdapter(adapter);
 
         presenter = new HeroesListPresenter(this);
         presenter.getHeroesList();
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Intent intent = new Intent(HeroesListActivity.this, HeroDetailActivity.class);
-                intent.putExtra(KeyWords.ID,heroes.get(position).getId());
+                intent.putExtra(KeyWords.ID, heroes.get(position).getId());
                 startActivity(intent);
 
             }
@@ -55,7 +55,7 @@ public class HeroesListActivity extends AppCompatActivity {
 
     }
 
-    public void waitOperation(){
+    public void waitOperation() {
         dialog = new ProgressDialog(this);
         dialog.setTitle("Loading");
         dialog.setMessage("Aguarde...");
@@ -63,17 +63,17 @@ public class HeroesListActivity extends AppCompatActivity {
 
     }
 
-    public void stopWait(){
+    public void stopWait() {
         dialog.dismiss();
     }
 
-    public void printHero(Hero hero){
-        Log.i("Flag",hero.getName());
+    public void printHero(Hero hero) {
+        Log.i("Flag", hero.getName());
         heroes.add(hero);
         adapter.notifyDataSetChanged();
     }
 
-    public void updateImg(int id, Bitmap img){
+    public void updateImg(int id, Bitmap img) {
         heroes.get(id).setPortraitIcon(img);
         adapter.notifyDataSetChanged();
     }

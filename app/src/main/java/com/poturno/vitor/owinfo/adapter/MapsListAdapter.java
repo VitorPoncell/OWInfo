@@ -46,7 +46,6 @@ public class MapsListAdapter extends ArrayAdapter<Map>{
             }
 
             String heroName = maps.get(position).getName();
-            vh.mapItemName.setTypeface(Typeface.createFromAsset(context.getAssets(),"fonts/big_noodle_titling.ttf"));
             vh.mapItemName.setText(heroName);
             Bitmap bitmap = maps.get(position).getSmallImg();
             vh.mapItemImg.setImageBitmap(bitmap);

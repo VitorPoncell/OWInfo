@@ -1,35 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorDark"
     tools:context=".activity.mapDetail.MapDetailActivity">
+
+    <ImageView
+        android:id="@+id/iv_map_detail"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"/>
 
     <TextView
         android:id="@+id/tv_map_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/big_noodle_titling"
+        android:textColor="@color/colorYellow"
+        android:textSize="20dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_map_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_map_name"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/tv_map_name"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/big_noodle_titling"
+        android:textColor="@color/colorYellow"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
     <TextView
         android:id="@+id/tv_map_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_map_location"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/tv_map_location"/>
-
-    <TextView
-        android:id="@+id/tv_map_event"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/tv_map_mode"/>
+        android:fontFamily="@font/big_noodle_titling"
+        android:textColor="@color/colorYellow"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_map_detail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

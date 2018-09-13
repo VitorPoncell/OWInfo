@@ -3,9 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/lv_heroes"
+    <GridView
+        android:id="@+id/gv_heroes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:numColumns="2"
+        android:background="@color/colorDark"
+        android:verticalSpacing="5dp"
+        ></GridView>
 
 </android.support.constraint.ConstraintLayout>

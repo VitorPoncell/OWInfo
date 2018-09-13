@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorYellow"
             android:textSize="50dp"
+            android:fontFamily="@font/big_noodle_titling"
             app:layout_constraintTop_toBottomOf="@id/iv_hero_dedtail_img"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -33,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorWhite"
+            android:fontFamily="@font/big_noodle_titling"
             app:layout_constraintTop_toBottomOf="@id/txt_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -43,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textColor="@color/colorWhite"
+            android:fontFamily="@font/big_noodle_titling"
             app:layout_constraintTop_toBottomOf="@id/txt_role"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -57,7 +60,9 @@
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@id/txt_real_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <TextView
             android:id="@+id/txt_health"
@@ -66,9 +71,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:text="@string/health"
+            android:fontFamily="@font/big_noodle_titling"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@id/txt_description"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
         <TextView
             android:id="@+id/txt_health_value"
@@ -76,9 +83,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_description"
             android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@id/txt_description"
-            app:layout_constraintStart_toEndOf="@id/txt_health"/>
+            app:layout_constraintStart_toEndOf="@id/txt_health"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <TextView
             android:id="@+id/txt_armour_value"
@@ -86,10 +96,12 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@id/txt_description"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_description"/>
+            app:layout_constraintTop_toBottomOf="@id/txt_description"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <TextView
             android:id="@+id/txt_armour"
@@ -97,10 +109,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_description"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
             android:text="@string/armour"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toStartOf="@id/txt_armour_value"
-            app:layout_constraintTop_toBottomOf="@id/txt_description"/>
+            app:layout_constraintTop_toBottomOf="@id/txt_description"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <TextView
             android:id="@+id/txt_affiliation"
@@ -111,16 +126,21 @@
             android:text="@string/affiliation"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_health"/>
+            app:layout_constraintTop_toBottomOf="@id/txt_health"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <TextView
             android:id="@+id/txt_affiliation_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toEndOf="@id/txt_affiliation"
-            app:layout_constraintTop_toBottomOf="@id/txt_health"/>
+            app:layout_constraintTop_toBottomOf="@id/txt_health"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <TextView
             android:id="@+id/txt_height"
@@ -131,16 +151,21 @@
             android:text="@string/height"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@id/txt_affiliation"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <TextView
             android:id="@+id/txt_height_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@id/txt_affiliation"
-            app:layout_constraintStart_toEndOf="@id/txt_height"/>
+            app:layout_constraintStart_toEndOf="@id/txt_height"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
 
 
@@ -153,7 +178,9 @@
             android:text="Base: "
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@id/txt_height"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <TextView
             android:id="@+id/txt_base_value"
@@ -162,7 +189,9 @@
             android:layout_marginTop="10dp"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@id/txt_height"
-            app:layout_constraintStart_toEndOf="@id/txt_base"/>
+            app:layout_constraintStart_toEndOf="@id/txt_base"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <TextView
             android:id="@+id/txt_difficulty"
@@ -172,7 +201,9 @@
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_base"/>
+            app:layout_constraintTop_toBottomOf="@id/txt_base"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <RatingBar
             android:theme="@style/RatingBar"
@@ -184,7 +215,9 @@
             android:numStars="3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_difficulty"/>
+            app:layout_constraintTop_toBottomOf="@id/txt_difficulty"
+            android:fontFamily="@font/big_noodle_titling"
+            />
 
         <ListView
             android:id="@+id/lv_abilities"
