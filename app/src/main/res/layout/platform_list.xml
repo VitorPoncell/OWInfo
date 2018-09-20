@@ -13,7 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:textColor="@color/colorYellow"
-        android:fontFamily="@font/big_noodle_titling"/>
+        android:fontFamily="@font/big_noodle_titling" />
 
     <ImageView
         android:id="@+id/iv_platform_img"
