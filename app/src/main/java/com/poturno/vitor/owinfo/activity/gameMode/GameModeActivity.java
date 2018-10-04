@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.poturno.vitor.owinfo.R;
 import com.poturno.vitor.owinfo.adapter.GameModeListAdapter;
+import com.poturno.vitor.owinfo.helper.KeyWords;
 import com.poturno.vitor.owinfo.model.GameMode;
 
 import java.util.ArrayList;
@@ -43,8 +44,8 @@ public class GameModeActivity extends AppCompatActivity {
 
     public void waitOperation(){
         dialog = new ProgressDialog(this);
-        dialog.setTitle("Loading");
-        dialog.setMessage("Aguarde...");
+        dialog.setTitle(KeyWords.LOADING);
+        dialog.setMessage(KeyWords.WAIT);
         dialog.show();
 
     }

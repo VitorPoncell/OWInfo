@@ -59,8 +59,8 @@ public class MapsListActivity extends AppCompatActivity {
 
     public void waitOperation(){
         dialog = new ProgressDialog(this);
-        dialog.setTitle("Loading");
-        dialog.setMessage("Aguarde...");
+        dialog.setTitle(KeyWords.LOADING);
+        dialog.setMessage(KeyWords.WAIT);
         dialog.show();
 
     }

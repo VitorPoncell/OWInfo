@@ -32,6 +32,9 @@ public class KeyWords {
     public static final String ASK_NET = "Connect to a network or quit app";
     public static final String YES_NET = "Connect";
     public static final String EXIT = "Exit";
+    public static final String LOADING = "Loading";
+    public static final String WAIT = "Wait";
+
 
 
 

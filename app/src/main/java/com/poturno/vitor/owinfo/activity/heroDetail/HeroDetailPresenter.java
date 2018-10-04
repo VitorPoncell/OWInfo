@@ -28,6 +28,7 @@ public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderLis
 
     @Override
     public void getHeroDetail(String id) {
+        activity.waitOperation();
         new JsonDownloader(this, Url.heroDetail(id)).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         new ImgDownloader(""+id,Url.getBigHeroImg(""+id),this).execute();
 
@@ -86,6 +87,7 @@ public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderLis
     @Override
     public void onJsonRecived(String json) {
         activity.printHeroDetail(jsonToHeroDetail(json));
+        activity.stopWait();
 
     }
 

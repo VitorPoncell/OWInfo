@@ -57,8 +57,8 @@ public class HeroesListActivity extends AppCompatActivity {
 
     public void waitOperation() {
         dialog = new ProgressDialog(this);
-        dialog.setTitle("Loading");
-        dialog.setMessage("Aguarde...");
+        dialog.setTitle(KeyWords.LOADING);
+        dialog.setMessage(KeyWords.WAIT);
         dialog.show();
 
     }
@@ -68,7 +68,6 @@ public class HeroesListActivity extends AppCompatActivity {
     }
 
     public void printHero(Hero hero) {
-        Log.i("Flag", hero.getName());
         heroes.add(hero);
         adapter.notifyDataSetChanged();
     }

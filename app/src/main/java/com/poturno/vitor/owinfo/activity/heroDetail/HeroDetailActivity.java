@@ -1,5 +1,6 @@
 package com.poturno.vitor.owinfo.activity.heroDetail;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
@@ -39,6 +40,7 @@ public class HeroDetailActivity extends AppCompatActivity {
     private RatingBar difficulty;
     private ListView abilitiesListView;
 
+    private ProgressDialog dialog;
     private ArrayAdapter<Ability> adapter;
     private ArrayList<Ability> abilities;
 
@@ -51,7 +53,6 @@ public class HeroDetailActivity extends AppCompatActivity {
         name = (TextView)findViewById(R.id.txt_name);
         role = (TextView)findViewById(R.id.txt_role);
         realName = (TextView)findViewById(R.id.txt_real_name);
-        age = (TextView)findViewById(R.id.txt_age);
         description = (TextView)findViewById(R.id.txt_description);
         health = (TextView)findViewById(R.id.txt_health_value);
         armour = (TextView)findViewById(R.id.txt_armour_value);
@@ -112,5 +113,17 @@ public class HeroDetailActivity extends AppCompatActivity {
 
     public void printHeroImg(Bitmap bitmap){
         heroImg.setImageBitmap(bitmap);
+    }
+
+    public void waitOperation(){
+        dialog = new ProgressDialog(this);
+        dialog.setTitle(KeyWords.LOADING);
+        dialog.setMessage(KeyWords.WAIT);
+        dialog.show();
+
+    }
+
+    public void stopWait(){
+        dialog.dismiss();
     }
 }
