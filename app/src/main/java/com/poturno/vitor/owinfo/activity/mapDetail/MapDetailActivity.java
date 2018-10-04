@@ -43,6 +43,9 @@ public class MapDetailActivity extends AppCompatActivity {
         name.setText(map.getName());
         location.setText(map.getLocation());
         mode.setText(map.getMode());
+        name.setContentDescription(map.getName());
+        location.setContentDescription(map.getLocation());
+        mode.setContentDescription(map.getMode());
     }
 
     public void printImage(Bitmap bitmap){

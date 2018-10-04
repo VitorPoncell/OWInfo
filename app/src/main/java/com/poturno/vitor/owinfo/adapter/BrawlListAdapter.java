@@ -44,6 +44,7 @@ public class BrawlListAdapter extends ArrayAdapter<Brawl> {
 
             String name = brawlArrayList.get(position).getName();
             vh.brawlName.setText(name);
+            vh.brawlName.setContentDescription(name);
             Bitmap bitmap = brawlArrayList.get(position).getBitmap();
             vh.brawlImg.setImageBitmap(bitmap);
 

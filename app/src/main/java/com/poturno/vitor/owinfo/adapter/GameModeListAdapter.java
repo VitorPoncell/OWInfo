@@ -47,6 +47,7 @@ public class GameModeListAdapter extends ArrayAdapter<GameMode> {
 
             String name = list.get(position).getName();
             vh.gameModeName.setText(name);
+            vh.gameModeName.setContentDescription(name);
             Bitmap img = list.get(position).getImg();
             vh.gameModeImg.setImageBitmap(img);
 

@@ -78,6 +78,7 @@
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@id/txt_description"
             app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/health"
             />
 
         <TextView
@@ -118,6 +119,7 @@
             app:layout_constraintEnd_toStartOf="@id/txt_armour_value"
             app:layout_constraintTop_toBottomOf="@id/txt_description"
             android:fontFamily="@font/big_noodle_titling"
+            android:contentDescription="@string/armour"
             />
 
         <TextView
@@ -131,6 +133,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_health"
             android:fontFamily="@font/big_noodle_titling"
+            android:contentDescription="@string/affiliation"
             />
 
         <TextView
@@ -156,6 +159,7 @@
             app:layout_constraintTop_toBottomOf="@id/txt_affiliation"
             app:layout_constraintStart_toStartOf="parent"
             android:fontFamily="@font/big_noodle_titling"
+            android:contentDescription="@string/height"
             />
 
         <TextView
@@ -178,11 +182,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:text="Base: "
+            android:text="@string/base"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@id/txt_height"
             app:layout_constraintStart_toStartOf="parent"
             android:fontFamily="@font/big_noodle_titling"
+            android:contentDescription="@string/base"
             />
 
         <TextView
@@ -200,12 +205,13 @@
             android:id="@+id/txt_difficulty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Difficult:"
+            android:text="@string/dificulty"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_base"
             android:fontFamily="@font/big_noodle_titling"
+            android:contentDescription=""
             />
 
         <RatingBar

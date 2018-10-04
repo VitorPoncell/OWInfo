@@ -50,6 +50,7 @@ public class HeroListAdapter extends ArrayAdapter<Hero> {
 
             String heroName = heroes.get(position).getName();
             vh.heroItemName.setText(heroName);
+            vh.heroItemName.setContentDescription(heroName);
             Bitmap img = heroes.get(position).getPortraitIcon();
             vh.heroImg.setImageBitmap(img);
 

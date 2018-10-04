@@ -52,8 +52,10 @@ public class AbilityListAdapter extends ArrayAdapter<Ability>{
 
             String name = abilities.get(position).getName();
             vh.ablilityName.setText(name);
+            vh.ablilityName.setContentDescription(name);
             String description = abilities.get(position).getDescription();
             vh.abilityDescription.setText(description);
+            vh.abilityDescription.setContentDescription(description);
 
         }
 

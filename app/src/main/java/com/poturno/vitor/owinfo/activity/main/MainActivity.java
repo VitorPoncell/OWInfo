@@ -1,9 +1,13 @@
 package com.poturno.vitor.owinfo.activity.main;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.poturno.vitor.owinfo.R;
 import com.poturno.vitor.owinfo.activity.brawl.BrawlActivity;
@@ -53,25 +58,29 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (items.get(position)){
-                    case MenuKeys.HEROES:
-                        openHeroesListActivity();
-                        break;
-                    case MenuKeys.MAPS:
-                        openMapsListActivity();
-                        break;
-                    case MenuKeys.GAME_MODE:
-                        openGameModeActivity();
-                        break;
-                    case MenuKeys.BRAWL:
-                        openBrawlActivity();
-                        break;
-                    case MenuKeys.PLATAFORM:
-                        openPlataformActivity();
-                        break;
 
-
+                if(isOnline()){
+                    switch (items.get(position)){
+                        case MenuKeys.HEROES:
+                            openHeroesListActivity();
+                            break;
+                        case MenuKeys.MAPS:
+                            openMapsListActivity();
+                            break;
+                        case MenuKeys.GAME_MODE:
+                            openGameModeActivity();
+                            break;
+                        case MenuKeys.BRAWL:
+                            openBrawlActivity();
+                            break;
+                        case MenuKeys.PLATFORM:
+                            openPlataformActivity();
+                            break;
+                    }
+                }else{
+                    askForInternet();
                 }
+
 
             }
         });
@@ -88,22 +97,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Sair do OWInfo?");
+        builder.setTitle(KeyWords.ASK_EXIT);
 
-        builder.setPositiveButton("Sair", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(KeyWords.YES, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
             }
         });
-        builder.setNegativeButton("Não", null);
+        builder.setNegativeButton(KeyWords.NO, null);
         builder.create();
         builder.show();
     }
@@ -132,4 +139,36 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, PlatformActivity.class);
         startActivity(intent);
     }
+
+
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void askForInternet(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(KeyWords.ASK_NET)
+                .setCancelable(false)
+                .setPositiveButton(KeyWords.YES_NET, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                    }
+                })
+                .setNegativeButton(KeyWords.EXIT, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+        builder.create();
+        builder.show();
+    }
+
 }

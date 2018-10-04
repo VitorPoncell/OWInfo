@@ -44,6 +44,7 @@ public class PlatformAdapter extends ArrayAdapter {
 
             String name = platformArrayList.get(position).getName();
             vh.plataformName.setText(name);
+            vh.plataformName.setContentDescription(name);
             Bitmap bitmap = platformArrayList.get(position).getBitmap();
             vh.plataformImg.setImageBitmap(bitmap);
 

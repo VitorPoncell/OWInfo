@@ -26,6 +26,13 @@ public class KeyWords {
     public static final String LOCATION = "location";
     public static final String MODE = "mode";
     public static final String EVENT = "event";
+    public static final String ASK_EXIT = "Exit OWInfo?";
+    public static final String YES = "Yes";
+    public static final String NO = "No";
+    public static final String ASK_NET = "Connect to a network or quit app";
+    public static final String YES_NET = "Connect";
+    public static final String EXIT = "Exit";
+
 
 
 

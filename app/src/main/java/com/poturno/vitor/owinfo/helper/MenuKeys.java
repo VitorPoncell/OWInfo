@@ -7,9 +7,9 @@ public class MenuKeys {
     public static final String MAPS = "Maps";
     public static final String GAME_MODE = "Game mode";
     public static final String BRAWL = "Brawl";
-    public static final String PLATAFORM = "Plataform";
+    public static final String PLATFORM = "Platform";
 
-    public static String[] items = {HEROES,MAPS,GAME_MODE,BRAWL,PLATAFORM};
+    public static String[] items = {HEROES,MAPS,GAME_MODE,BRAWL,PLATFORM};
 
 
 }

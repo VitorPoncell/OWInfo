@@ -84,15 +84,25 @@ public class HeroDetailActivity extends AppCompatActivity {
 
     public void printHeroDetail(Hero hero){
         name.setText(hero.getName());
+        name.setContentDescription(hero.getName());
         role.setText(hero.getRole());
+        role.setContentDescription(hero.getRole());
         realName.setText(hero.getRealName());
+        realName.setContentDescription(hero.getRealName());
         description.setText(hero.getDescription());
+        description.setContentDescription(hero.getDescription());
         health.setText(String.valueOf(hero.getHealth()));
+        health.setContentDescription(String.valueOf(hero.getHealth()));
         armour.setText(String.valueOf(hero.getArmour()));
+        armour.setContentDescription(String.valueOf(hero.getArmour()));
         affiliation.setText(hero.getAffiliation());
+        affiliation.setContentDescription(hero.getAffiliation());
         height.setText(hero.getHeight());
+        height.setContentDescription(hero.getHeight());
         baseOfOperation.setText(hero.getBaseOfOperations());
+        baseOfOperation.setContentDescription(hero.getBaseOfOperations());
         difficulty.setRating(Float.parseFloat(hero.getDifficulty()));
+        difficulty.setContentDescription(hero.getDifficulty());
         abilities.addAll(hero.getAbilities());
         adapter.notifyDataSetChanged();
 

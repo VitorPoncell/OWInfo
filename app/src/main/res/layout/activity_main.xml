@@ -33,6 +33,7 @@
         android:textSize="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_main_icon"/>
+        app:layout_constraintTop_toBottomOf="@id/iv_main_icon"
+        android:contentDescription="@string/game_page"/>
 
 </android.support.constraint.ConstraintLayout>

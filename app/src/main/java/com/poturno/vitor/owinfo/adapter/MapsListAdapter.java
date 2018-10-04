@@ -47,6 +47,7 @@ public class MapsListAdapter extends ArrayAdapter<Map>{
 
             String heroName = maps.get(position).getName();
             vh.mapItemName.setText(heroName);
+            vh.mapItemName.setContentDescription(heroName);
             Bitmap bitmap = maps.get(position).getSmallImg();
             vh.mapItemImg.setImageBitmap(bitmap);
 
