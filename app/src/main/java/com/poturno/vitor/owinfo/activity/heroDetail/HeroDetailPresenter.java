@@ -45,9 +45,9 @@ public class HeroDetailPresenter implements IHeroDetailPresenter, IDownloaderLis
             hero.setRealName(verifyNull(jsonObject.getString(KeyWords.REAL_NAME)));
             hero.setAge(""+verifyNull(""+jsonObject.get(KeyWords.AGE)));
             hero.setHeight(""+verifyNull(jsonObject.get(KeyWords.HEIGHT)));
-            hero.setAffiliation(verifyNull(jsonObject.getString(KeyWords.AFFILIATION)));
+            hero.setAffiliation(verifyNull(jsonObject.get(KeyWords.AFFILIATION)));
             hero.setBaseOfOperations(verifyNull(jsonObject.getString(KeyWords.BASE_OF_OPERATIONS)));
-            hero.setDifficulty(""+jsonObject.getInt(KeyWords.DIFFICULTY));
+            hero.setDifficulty(""+jsonObject.get(KeyWords.DIFFICULTY));
             hero.setUrl(jsonObject.getString(KeyWords.URL));
             hero.setRole(jsonObject.getJSONObject(KeyWords.ROLE).getString(KeyWords.NAME));
             ArrayList<String> subRoles = new ArrayList<String>();

@@ -29,6 +29,7 @@ public class HeroDetailActivity extends AppCompatActivity {
     private TextView name;
     private TextView role;
     private TextView realName;
+    private TextView age;
     private TextView description;
     private TextView health;
     private TextView armour;
@@ -50,6 +51,7 @@ public class HeroDetailActivity extends AppCompatActivity {
         name = (TextView)findViewById(R.id.txt_name);
         role = (TextView)findViewById(R.id.txt_role);
         realName = (TextView)findViewById(R.id.txt_real_name);
+        age = (TextView)findViewById(R.id.txt_age);
         description = (TextView)findViewById(R.id.txt_description);
         health = (TextView)findViewById(R.id.txt_health_value);
         armour = (TextView)findViewById(R.id.txt_armour_value);
@@ -58,12 +60,12 @@ public class HeroDetailActivity extends AppCompatActivity {
         baseOfOperation = (TextView)findViewById(R.id.txt_base_value);
         difficulty = (RatingBar)findViewById(R.id.rb_difficult_value);
 
-
         abilitiesListView = (ListView)findViewById(R.id.lv_abilities);
 
         abilities = new ArrayList<Ability>();
         adapter = new AbilityListAdapter(this,abilities);
         abilitiesListView.setAdapter(adapter);
+
 
         Intent intent = getIntent();
         String id = intent.getStringExtra(KeyWords.ID);
